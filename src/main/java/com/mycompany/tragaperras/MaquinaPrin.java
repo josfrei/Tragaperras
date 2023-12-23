@@ -113,7 +113,10 @@ public class MaquinaPrin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Mostramos el resultado del bombo en pantalla
+ * @param evt 
+ */
     private void btnPalancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPalancaActionPerformed
 
            aleatorioTragaperras eleccionbombo = new aleatorioTragaperras();
@@ -127,7 +130,12 @@ public class MaquinaPrin extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnPalancaActionPerformed
-
+/**
+ * Mostramos el resultado de la tragaperras en pantalla
+ * @param posicionUno
+ * @param posicionDos
+ * @param posicionTres 
+ */
     private void verificarGanador(String posicionUno, String posicionDos, String posicionTres){
 
         if (posicionUno.equals(posicionDos) && posicionDos.equals(posicionTres)) {
