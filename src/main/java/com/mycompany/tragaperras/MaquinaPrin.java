@@ -31,6 +31,7 @@ public class MaquinaPrin extends javax.swing.JFrame {
         labelUno = new javax.swing.JLabel();
         labelDos = new javax.swing.JLabel();
         labelTres = new javax.swing.JLabel();
+        labelResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +60,10 @@ public class MaquinaPrin extends javax.swing.JFrame {
         labelTres.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTres.setText("X");
 
+        labelResultado.setBackground(new java.awt.Color(153, 255, 51));
+        labelResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelResultado.setText("Prueba suerte");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -66,7 +71,7 @@ public class MaquinaPrin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(labelUno, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelDos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
                 .addComponent(labelTres, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -75,6 +80,10 @@ public class MaquinaPrin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPalanca, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(123, 123, 123))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(labelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +93,9 @@ public class MaquinaPrin extends javax.swing.JFrame {
                     .addComponent(labelUno)
                     .addComponent(labelDos)
                     .addComponent(labelTres))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(labelResultado)
+                .addGap(38, 38, 38)
                 .addComponent(btnPalanca, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
@@ -104,14 +115,33 @@ public class MaquinaPrin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPalancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPalancaActionPerformed
-        // TODO add your handling code here:
+
+           aleatorioTragaperras eleccionbombo = new aleatorioTragaperras();
+           eleccionbombo.aleatorioIndividual();
+           
+           labelUno.setText(eleccionbombo.posicionUno);
+           labelDos.setText(eleccionbombo.posicionDos);
+           labelTres.setText(eleccionbombo.posicionTres);
+
+           verificarGanador(eleccionbombo.posicionUno, eleccionbombo.posicionDos, eleccionbombo.posicionTres);
+
+
     }//GEN-LAST:event_btnPalancaActionPerformed
 
+    private void verificarGanador(String posicionUno, String posicionDos, String posicionTres){
+
+        if (posicionUno.equals(posicionDos) && posicionDos.equals(posicionTres)) {
+                labelResultado.setText("Has ganado");
+            } else {
+                labelResultado.setText("Vuelve a intentar");
+            }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPalanca;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelDos;
+    private javax.swing.JLabel labelResultado;
     private javax.swing.JLabel labelTres;
     private javax.swing.JLabel labelUno;
     // End of variables declaration//GEN-END:variables
